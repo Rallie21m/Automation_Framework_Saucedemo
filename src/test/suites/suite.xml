@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite thread-count="2" verbose="1" name="Automation_Framework_Saucedemo"
+       annotations="JDK" parallel="tests">
+
+    <test name="First Test Suite">
+        <classes>
+            <class name="qa.automation.ValidLoginTest"/>
+        </classes>
+    </test>
+    <test name="Second Test Suite">
+        <classes>
+            <class name="qa.automation.ValidLoginTest"/>
+        </classes>
+    </test>
+</suite>
