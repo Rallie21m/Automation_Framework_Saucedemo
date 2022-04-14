@@ -23,5 +23,4 @@ public class HomepageTest extends TestUtil {
         ProductsPage productsPage = loginPage.login(userName, password);
         Assert.assertTrue(productsPage.isCorrectImgDisplayed(), "Wrong products image!");
     }
-
 }

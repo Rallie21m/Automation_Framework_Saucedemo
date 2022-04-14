@@ -13,9 +13,6 @@ public class CartPage {
     protected WebDriver driver;
     private static final String REMOVE_FROM_CART_LOCATOR = "//button[@id='remove-sauce-labs-%s']";
 
-    @FindBy(xpath = "//button[@id='continue-shopping']")
-    private WebElement continueShoppingBtn;
-
     @FindBy(xpath = "//button[@id='checkout']")
     private WebElement checkoutBtn;
 
@@ -32,8 +29,7 @@ public class CartPage {
         String xpathOfElementToBeAdded = String.format(REMOVE_FROM_CART_LOCATOR, productName);
         WebElement itemInTheCart = driver.findElement(By.xpath(xpathOfElementToBeAdded));
         try {
-            driver.findElement(By.xpath(xpathOfElementToBeAdded));
-            return true;
+            return itemInTheCart.isDisplayed();
         } catch (NoSuchElementException e) {
             return false;
         }

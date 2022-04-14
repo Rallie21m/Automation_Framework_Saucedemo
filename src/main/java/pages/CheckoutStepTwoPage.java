@@ -5,7 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.FluentWait;
+
+import java.time.Duration;
+import java.util.Collections;
+import java.util.NoSuchElementException;
 
 public class CheckoutStepTwoPage {
     protected WebDriver driver;
@@ -23,8 +27,11 @@ public class CheckoutStepTwoPage {
     }
 
     public CheckoutCompletePage checkoutFinal (){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(finishBtn));
+        FluentWait fluentWait = new FluentWait(driver)
+                .withTimeout(Duration.ofSeconds(20))
+                .pollingEvery(Duration.ofSeconds(2))
+                .ignoreAll(Collections.singleton(NoSuchElementException.class));
+        fluentWait.until(ExpectedConditions.elementToBeClickable(finishBtn));
         finishBtn.click();
         return new CheckoutCompletePage (driver);
     }

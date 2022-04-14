@@ -51,6 +51,7 @@ public class ProductsPage {
     public boolean isUserAllPagesBtnShown() {
         return userAllPagesBtn.isDisplayed();
     }
+
     public void addItemToTheCart (String productName){
         String xpathOfElementToBeAdded = String.format(ADD_TO_CART_LOCATOR, productName);
         WebElement addToCartButton = driver.findElement(By.xpath(xpathOfElementToBeAdded));
