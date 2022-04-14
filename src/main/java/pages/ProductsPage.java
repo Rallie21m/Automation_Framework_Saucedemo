@@ -44,8 +44,8 @@ public class ProductsPage {
     private WebElement imgItem5;
 
     public ProductsPage(WebDriver driver){
-        this.driver=driver;
-        PageFactory.initElements(driver, this);
+    this.driver=driver;
+    PageFactory.initElements(driver, this);
     }
 
     public boolean isUserAllPagesBtnShown() {
